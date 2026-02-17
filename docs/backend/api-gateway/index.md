@@ -64,10 +64,10 @@ api_gateway/
 
 | Servicio | URL |
 |----------|-----|
-| MCP Server | `https://mcp.gdilatam.com/mcp` |
-| REST API | `https://mcp.gdilatam.com/api/v1/*` |
-| OAuth Discovery | `https://mcp.gdilatam.com/.well-known/oauth-protected-resource` |
-| OpenAPI Spec | `https://mcp.gdilatam.com/.well-known/openapi.json` |
+| MCP Server | `https://mcp.tu-dominio.com/mcp` |
+| REST API | `https://mcp.tu-dominio.com/api/v1/*` |
+| OAuth Discovery | `https://mcp.tu-dominio.com/.well-known/oauth-protected-resource` |
+| OpenAPI Spec | `https://mcp.tu-dominio.com/.well-known/openapi.json` |
 
 ## MCPContext
 

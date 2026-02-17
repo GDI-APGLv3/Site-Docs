@@ -136,7 +136,7 @@ graph TB
 Los frontends y clientes MCP se comunican con los backends a traves de URLs publicas Railway (`*.up.railway.app`):
 
 ```
-Browser → https://gdi-frontend-*.up.railway.app → https://gdi-backend-*.up.railway.app
+Browser → https://mi-frontend.up.railway.app → https://mi-backend.up.railway.app
 ```
 
 ### Comunicacion Interna (URLs internas Railway)
@@ -144,10 +144,10 @@ Browser → https://gdi-frontend-*.up.railway.app → https://gdi-backend-*.up.r
 Los backends se comunican con los microservicios a traves de URLs internas Railway, que son mas rapidas y sin costo de egress:
 
 ```
-GDI-Backend → http://gdi-pdfcomposer.railway.internal:8002
-GDI-Backend → http://gdi-notary.railway.internal:8001
-GDI-Backend → http://gdi-emailservice.railway.internal:8003
-GDI-Backend → http://gdi-agentelang.railway.internal:8004
+GDI-Backend → http://pdfcomposer-svc.railway.internal:8002
+GDI-Backend → http://notary-svc.railway.internal:8001
+GDI-Backend → http://email-svc.railway.internal:8003
+GDI-Backend → http://agente-svc.railway.internal:8004
 PDFComposer → http://gotenberg.railway.internal:3000
 ```
 

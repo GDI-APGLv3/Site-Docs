@@ -59,8 +59,8 @@ Cliente (Frontend/MCP)
 
 | Servicio | URL Interna (Railway) | Proposito |
 |----------|----------------------|-----------|
-| GDI-PDFComposer | `gdi-pdfcomposer.railway.internal` | Generar PDFs (preview, final, CAEX, PV) |
-| GDI-Notary | `gdi-notary.railway.internal` | Firma digital multi-firmante |
+| GDI-PDFComposer | `pdfcomposer-svc.railway.internal` | Generar PDFs (preview, final, CAEX, PV) |
+| GDI-Notary | `notary-svc.railway.internal` | Firma digital multi-firmante |
 | Cloudflare R2 | S3 API | Almacenamiento de PDFs |
 | Auth0 | `tu-tenant.us.auth0.com` | Autenticacion OAuth 2.0 |
 

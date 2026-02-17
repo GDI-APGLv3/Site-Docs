@@ -165,7 +165,7 @@ Soporta multiples audiences para flexibilidad de clientes:
 VALID_AUDIENCES = [
     os.getenv('AUTH0_AUDIENCE'),      # Backend principal
     os.getenv('MCP_RESOURCE_URI'),    # Variable configurable
-    "https://mcp.gdilatam.com"        # Produccion hardcoded
+    "https://mcp.tu-dominio.com"        # Produccion hardcoded
 ]
 ```
 

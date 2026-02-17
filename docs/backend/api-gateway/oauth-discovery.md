@@ -31,7 +31,7 @@ Server responde 401 + WWW-Authenticate:
     v
 Server responde:
     {
-        "resource": "https://mcp.gdilatam.com",
+        "resource": "https://mcp.tu-dominio.com",
         "authorization_servers": ["https://tu-tenant.us.auth0.com"],
         "scopes_supported": ["openid", "profile", "email", "offline_access"],
         "bearer_methods_supported": ["header"]
@@ -67,7 +67,7 @@ Indica a clientes MCP **donde autenticarse**.
 
 ```json
 {
-    "resource": "https://mcp.gdilatam.com",
+    "resource": "https://mcp.tu-dominio.com",
     "authorization_servers": [
         "https://tu-tenant.us.auth0.com"
     ],
@@ -137,7 +137,7 @@ Para que el flujo OAuth funcione, Auth0 debe tener:
 
 | Requisito | Configuracion |
 |-----------|--------------|
-| API creada | Audience: `https://mcp.gdilatam.com` |
+| API creada | Audience: `https://mcp.tu-dominio.com` |
 | DCR habilitado | Settings > Advanced > "OIDC Dynamic Application Registration" |
 | Conexion promovida | Database connection con "Domain Level" habilitado |
 | Scopes | `openid profile email offline_access` |
@@ -148,7 +148,7 @@ Para que el flujo OAuth funcione, Auth0 debe tener:
 VALID_AUDIENCES = [
     os.getenv('AUTH0_AUDIENCE'),       # Backend principal
     os.getenv('MCP_RESOURCE_URI'),     # Variable configurable
-    "https://mcp.gdilatam.com"         # Produccion hardcoded
+    "https://mcp.tu-dominio.com"         # Produccion hardcoded
 ]
 ```
 
@@ -160,7 +160,7 @@ Cuando un cliente envia un request sin token, el server responde:
 
 ```http
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer resource_metadata="https://mcp.gdilatam.com/.well-known/oauth-protected-resource"
+WWW-Authenticate: Bearer resource_metadata="https://mcp.tu-dominio.com/.well-known/oauth-protected-resource"
 Content-Type: application/json
 
 {

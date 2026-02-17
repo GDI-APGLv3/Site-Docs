@@ -78,7 +78,7 @@ Todos los servicios se despliegan en Railway como PaaS. Cada servicio tiene su p
 El proyecto esta organizado como **multi-repo**: cada carpeta en el directorio raiz es un repositorio Git independiente. No es un monorepo.
 
 ```
-MVP-GDILatam/          # Directorio raiz (NO es repo git)
+mi-proyecto/          # Directorio raiz (NO es repo git)
 ├── GDI-FRONTEND/      # App usuarios (Next.js :3003)
 ├── GDI-Backend/       # API principal (FastAPI :8000)
 ├── GDI-BackOffice-Front/  # Admin UI (Next.js :3013)

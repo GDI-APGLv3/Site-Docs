@@ -61,7 +61,7 @@ allowed_origins = (
 Configurar la variable de entorno `FRONTEND_URL` en Railway con la URL del frontend:
 
 ```bash
-railway variables --set FRONTEND_URL="https://gdi-frontend-xxx.up.railway.app"
+railway variables --set FRONTEND_URL="https://mi-frontend.up.railway.app"
 railway redeploy
 ```
 
@@ -105,7 +105,7 @@ railway variables | grep AUTH0
 
 # Deben coincidir:
 # AUTH0_DOMAIN=tu-tenant.us.auth0.com
-# AUTH0_AUDIENCE=https://api.gdilatam.com
+# AUTH0_AUDIENCE=https://api.tu-dominio.com
 ```
 
 Si el token expira rapidamente, verificar la configuracion de token lifetime en Auth0 Dashboard > APIs > Settings.
@@ -370,7 +370,7 @@ curl http://localhost:8000/health
 NEXT_PUBLIC_API_URL=http://localhost:8000
 
 # En produccion (Railway), verificar que la URL sea la publica
-NEXT_PUBLIC_API_URL=https://gdi-backend-xxx.up.railway.app
+NEXT_PUBLIC_API_URL=https://mi-backend.up.railway.app
 ```
 
 !!! tip "Prefijo NEXT_PUBLIC_"

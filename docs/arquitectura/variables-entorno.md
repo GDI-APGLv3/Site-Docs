@@ -8,16 +8,16 @@ Tabla consolidada de todas las variables de entorno del ecosistema GDI, agrupada
 |----------|-------------|-----------|---------|
 | `DATABASE_URL` | Connection string PostgreSQL | Si | `postgresql://user:pass@host:port/db` |
 | `AUTH0_DOMAIN` | Dominio Auth0 | Si | `tu-tenant.us.auth0.com` |
-| `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://api.gdilatam.com` |
-| `PDFCOMPOSER_URL` | URL de GDI-PDFComposer | Si | `http://gdi-pdfcomposer.railway.internal:8002` |
+| `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://api.tu-dominio.com` |
+| `PDFCOMPOSER_URL` | URL de GDI-PDFComposer | Si | `http://pdfcomposer-svc.railway.internal:8002` |
 | `PDFCOMPOSER_API_KEY` | API Key para PDFComposer | Si | `(secreto)` |
-| `NOTARY_URL` | URL de GDI-Notary | Si | `http://gdi-notary.railway.internal:8001` |
+| `NOTARY_URL` | URL de GDI-Notary | Si | `http://notary-svc.railway.internal:8001` |
 | `NOTARY_API_KEY` | API Key para Notary | Si | `(secreto)` |
 | `R2_ACCOUNT_ID` | Cloudflare Account ID | Si | `(secreto)` |
 | `R2_ACCESS_KEY_ID` | Cloudflare R2 Access Key | Si | `(secreto)` |
 | `R2_SECRET_ACCESS_KEY` | Cloudflare R2 Secret Key | Si | `(secreto)` |
 | `R2_BUCKET_NAME` | Nombre del bucket R2 | Si | `tenant-test-oficial` |
-| `FRONTEND_URL` | URL del frontend (CORS) | No | `https://gdi-frontend.up.railway.app` |
+| `FRONTEND_URL` | URL del frontend (CORS) | No | `https://mi-frontend.up.railway.app` |
 | `TESTING_MODE` | Modo testing (sin Auth0) | No | `true` / `false` |
 | `PORT` | Puerto del servicio | No | `8000` (Railway lo inyecta) |
 
@@ -27,13 +27,13 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 
 | Variable | Descripcion | Requerida | Ejemplo |
 |----------|-------------|-----------|---------|
-| `MCP_RESOURCE_URI` | URI del recurso MCP | No | `https://mcp.gdilatam.com` |
+| `MCP_RESOURCE_URI` | URI del recurso MCP | No | `https://mcp.tu-dominio.com` |
 
 **Audiences JWT soportados automaticamente:**
 
 - `AUTH0_AUDIENCE` (del Backend)
 - `MCP_RESOURCE_URI` (si definida)
-- `https://mcp.gdilatam.com` (hardcodeado)
+- `https://mcp.tu-dominio.com` (hardcodeado)
 
 ## GDI-BackOffice-Back (:8010)
 
@@ -82,10 +82,10 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 | `OPENROUTER_MODEL` | Modelo LLM principal | Si | `google/gemini-2.0-flash-001` |
 | `OPENROUTER_FAST_MODEL` | Modelo para Router (gratis) | Si | `meta-llama/llama-3.3-70b-instruct:free` |
 | `EMBEDDINGS_MODEL` | Modelo de embeddings | Si | `openai/text-embedding-3-small` |
-| `GDI_BACKEND_URL` | URL del Backend | Si | `http://gdi-backend.railway.internal:8000` |
+| `GDI_BACKEND_URL` | URL del Backend | Si | `http://backend-svc.railway.internal:8000` |
 | `INTERNAL_API_KEY` | API Key interna para Backend | Si | `gdi-internal-2026` |
 | `AUTH0_DOMAIN` | Dominio Auth0 | Si | `tu-tenant.us.auth0.com` |
-| `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://api.gdilatam.com` |
+| `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://api.tu-dominio.com` |
 | `AI_WORKER_INTERVAL` | Intervalo del worker (segundos) | No | `60` (default) |
 | `AI_WORKER_BATCH_SIZE` | Documentos por batch | No | `10` (default) |
 | `ENABLED_SCHEMAS` | Schemas a procesar | No | `["200_muni"]` |
@@ -124,9 +124,9 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 | `API_KEY` | API Key de autenticacion | Si | `(secreto)` |
 | `SMTP_HOST` | Host del servidor SMTP | Si | `smtp.mailgun.org` |
 | `SMTP_PORT` | Puerto SMTP | Si | `587` |
-| `SMTP_USER` | Usuario SMTP | Si | `postmaster@mail.gdilatam.com` |
+| `SMTP_USER` | Usuario SMTP | Si | `noreply@tu-dominio.com` |
 | `SMTP_PASSWORD` | Password SMTP | Si | `(secreto)` |
-| `FROM_EMAIL` | Email de origen | Si | `postmaster@mail.gdilatam.com` |
+| `FROM_EMAIL` | Email de origen | Si | `noreply@tu-dominio.com` |
 | `FROM_NAME` | Nombre visible del remitente | Si | `GDI Latam` |
 
 ## Dashboard GDI

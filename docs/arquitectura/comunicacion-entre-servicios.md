@@ -78,7 +78,7 @@ La REST API del MCP Server tambien soporta autenticacion por API Key para integr
 ```bash
 curl -H "X-API-Key: sk-gdi-xxx" \
      -H "X-User-ID: uuid-del-usuario" \
-     https://mcp.gdilatam.com/api/v1/cases/search
+     https://mcp.tu-dominio.com/api/v1/cases/search
 ```
 
 ## Railway Internal URLs vs Public URLs
@@ -95,10 +95,10 @@ http://{servicio}.railway.internal:{puerto}
 
 ```bash
 # Backend → PDFComposer
-PDFCOMPOSER_URL=http://gdi-pdfcomposer.railway.internal:8002
+PDFCOMPOSER_URL=http://pdfcomposer-svc.railway.internal:8002
 
 # Backend → Notary
-NOTARY_URL=http://gdi-notary.railway.internal:8001
+NOTARY_URL=http://notary-svc.railway.internal:8001
 
 # PDFComposer → Gotenberg
 GOTENBERG_URL=http://gotenberg.railway.internal:3000
@@ -119,11 +119,11 @@ Los frontends y clientes externos acceden via URLs publicas de Railway:
 
 ```bash
 # Frontends (navegador del usuario)
-https://gdi-frontend.up.railway.app     # GDI-FRONTEND
-https://gdi-backoffice.up.railway.app   # GDI-BackOffice-Front
+https://mi-frontend.up.railway.app     # GDI-FRONTEND
+https://mi-backoffice.up.railway.app   # GDI-BackOffice-Front
 
 # APIs publicas
-https://mcp.gdilatam.com/mcp            # MCP Server (dominio custom)
+https://mcp.tu-dominio.com/mcp            # MCP Server (dominio custom)
 ```
 
 ### Comunicacion Externa

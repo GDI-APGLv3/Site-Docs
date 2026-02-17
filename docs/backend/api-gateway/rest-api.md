@@ -16,7 +16,7 @@ Requiere **dos headers** en cada request:
 ```bash
 curl -H "X-API-Key: sk-gdi-abc123" \
      -H "X-User-ID: 550e8400-e29b-41d4-a716-446655440000" \
-     https://mcp.gdilatam.com/api/v1/cases/search
+     https://mcp.tu-dominio.com/api/v1/cases/search
 ```
 
 ### Validacion (`auth_rest.py`)
@@ -174,7 +174,7 @@ def _json_serializer(obj):
 curl -s \
   -H "X-API-Key: sk-gdi-abc123" \
   -H "X-User-ID: 550e8400-e29b-41d4-a716-446655440000" \
-  "https://mcp.gdilatam.com/api/v1/cases/search?search=habilitacion&status=active&page=1"
+  "https://mcp.tu-dominio.com/api/v1/cases/search?search=habilitacion&status=active&page=1"
 
 # Respuesta
 {

@@ -21,7 +21,7 @@ Cada servicio es un repositorio Git independiente. La carpeta raiz **no es un re
 
 ```bash
 # Crear directorio raiz
-mkdir MVP-GDILatam && cd MVP-GDILatam
+mkdir mi-proyecto && cd mi-proyecto
 
 # Backends
 git clone <url>/GDI-Backend.git        # API principal (:8000)
@@ -134,7 +134,7 @@ SMTP_HOST=smtp.mailtrap.io
 SMTP_PORT=587
 SMTP_USER=your-mailtrap-user
 SMTP_PASSWORD=your-mailtrap-pass
-FROM_EMAIL=test@gdilatam.com
+FROM_EMAIL=test@tu-dominio.com
 FROM_NAME=GDI Latam Dev
 ```
 
@@ -149,7 +149,7 @@ EMBEDDINGS_MODEL=openai/text-embedding-3-small
 GDI_BACKEND_URL=http://localhost:8000
 INTERNAL_API_KEY=gdi-internal-dev
 AUTH0_DOMAIN=tu-tenant.us.auth0.com
-AUTH0_AUDIENCE=https://api.gdilatam.com
+AUTH0_AUDIENCE=https://api.tu-dominio.com
 ENABLED_SCHEMAS=["200_muni"]
 ```
 

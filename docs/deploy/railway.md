@@ -54,12 +54,12 @@ railway environment use dev-test
 | `DB_NAME` | Nombre de la base de datos | `GDI-MVP` |
 | `TESTING_MODE` | Modo testing (header X-User-ID) | `true` / `false` |
 | `AUTH0_DOMAIN` | Dominio Auth0 | `tu-tenant.us.auth0.com` |
-| `AUTH0_AUDIENCE` | Audience JWT | `https://api.gdilatam.com` |
-| `PDFCOMPOSER_URL` | URL PDFComposer (internal) | `http://gdi-pdfcomposer.railway.internal:8002` |
+| `AUTH0_AUDIENCE` | Audience JWT | `https://api.tu-dominio.com` |
+| `PDFCOMPOSER_URL` | URL PDFComposer (internal) | `http://pdfcomposer-svc.railway.internal:8002` |
 | `PDFCOMPOSER_API_KEY` | API Key PDFComposer | `<SECRET>` |
-| `NOTARY_URL` | URL Notary (internal) | `http://gdi-notary.railway.internal:8001` |
+| `NOTARY_URL` | URL Notary (internal) | `http://notary-svc.railway.internal:8001` |
 | `NOTARY_API_KEY` | API Key Notary | `<SECRET>` |
-| `EMAILSERVICE_URL` | URL eMailService (internal) | `http://gdi-emailservice.railway.internal:8003` |
+| `EMAILSERVICE_URL` | URL eMailService (internal) | `http://email-svc.railway.internal:8003` |
 | `CF_R2_ENDPOINT` | Endpoint Cloudflare R2 | `https://<ACCOUNT_ID>.r2.cloudflarestorage.com` |
 | `CF_R2_ACCESS_KEY_ID` | R2 Access Key | `<SECRET>` |
 | `CF_R2_SECRET_ACCESS_KEY` | R2 Secret Key | `<SECRET>` |
@@ -155,7 +155,7 @@ curl https://<BACKEND_URL>/health
 
 ```bash
 # Solo desde dentro de Railway (internal)
-curl http://gdi-pdfcomposer.railway.internal:8002/health
+curl http://pdfcomposer-svc.railway.internal:8002/health
 ```
 
 ---
@@ -185,7 +185,7 @@ curl http://gdi-pdfcomposer.railway.internal:8002/health
 **Health check:**
 
 ```bash
-curl http://gdi-notary.railway.internal:8001/health
+curl http://notary-svc.railway.internal:8001/health
 # {"status": "healthy", "signature_system": "pades", ...}
 ```
 
@@ -284,9 +284,9 @@ graph LR
         NOT["Notary"]
     end
 
-    Client -->|"https://gdi-backend-*.up.railway.app"| BE
-    BE -->|"http://gdi-pdfcomposer.railway.internal:8002"| PDF
-    BE -->|"http://gdi-notary.railway.internal:8001"| NOT
+    Client -->|"https://mi-backend.up.railway.app"| BE
+    BE -->|"http://pdfcomposer-svc.railway.internal:8002"| PDF
+    BE -->|"http://notary-svc.railway.internal:8001"| NOT
 ```
 
 ### Formato de Internal URLs
@@ -297,10 +297,10 @@ http://<service-name>.railway.internal:<port>
 
 | Servicio | Internal URL |
 |----------|-------------|
-| GDI-PDFComposer | `http://gdi-pdfcomposer.railway.internal:8002` |
-| GDI-Notary | `http://gdi-notary.railway.internal:8001` |
-| GDI-eMailService | `http://gdi-emailservice.railway.internal:8003` |
-| GDI-AgenteLANG | `http://gdi-agentelang.railway.internal:8004` |
+| GDI-PDFComposer | `http://pdfcomposer-svc.railway.internal:8002` |
+| GDI-Notary | `http://notary-svc.railway.internal:8001` |
+| GDI-eMailService | `http://email-svc.railway.internal:8003` |
+| GDI-AgenteLANG | `http://agente-svc.railway.internal:8004` |
 | Gotenberg | `http://gotenberg.railway.internal:3000` |
 | PostgreSQL | `postgres.railway.internal:5432` |
 
@@ -491,5 +491,5 @@ railway service
 # El nombre debe coincidir con la internal URL
 
 # Temporalmente cambiar a public URL para descartar problemas de red
-railway variables --set PDFCOMPOSER_URL="https://gdi-pdfcomposer-*.up.railway.app"
+railway variables --set PDFCOMPOSER_URL="https://mi-pdfcomposer.up.railway.app"
 ```

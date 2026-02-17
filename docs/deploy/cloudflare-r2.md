@@ -220,8 +220,8 @@ Para que los frontends puedan descargar PDFs directamente desde R2 (via presigne
 [
   {
     "AllowedOrigins": [
-      "https://gdi-frontend-*.up.railway.app",
-      "https://gdi-backoffice-front-*.up.railway.app",
+      "https://mi-frontend.up.railway.app",
+      "https://mi-backoffice.up.railway.app",
       "http://localhost:3003",
       "http://localhost:3013"
     ],

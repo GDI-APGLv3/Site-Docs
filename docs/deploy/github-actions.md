@@ -186,7 +186,7 @@ Para valores que no son secretos, usar **Variables** en lugar de Secrets:
 
 | Variable | Descripcion | Ejemplo |
 |----------|-------------|---------|
-| `RAILWAY_SERVICE_NAME` | Nombre del servicio a desplegar | `gdi-backend` |
+| `RAILWAY_SERVICE_NAME` | Nombre del servicio a desplegar | `mi-backend` |
 
 ---
 
