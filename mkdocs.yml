@@ -1,0 +1,198 @@
+site_name: GDI Tech Docs
+site_description: Documentacion tecnica por servicio - GDI Latam
+site_author: GDI Latam
+site_url: https://gdi-apglv3.github.io/Site-Docs/
+
+repo_name: GDI-APGLv3/Site-Docs
+repo_url: https://github.com/GDI-APGLv3/Site-Docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: es
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+      title: En esta pagina
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/GestionDocumentalInteligente
+      name: GDI en GitHub
+
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Inicio: index.md
+
+  - Arquitectura:
+      - arquitectura/index.md
+      - Diagrama de Servicios: arquitectura/diagrama-servicios.md
+      - Comunicacion entre Servicios: arquitectura/comunicacion-entre-servicios.md
+      - Multi-Tenant: arquitectura/multi-tenant.md
+      - Flujos Principales: arquitectura/flujos-principales.md
+      - Variables de Entorno: arquitectura/variables-entorno.md
+
+  - Frontend:
+      - frontend/index.md
+      - Estructura del Proyecto: frontend/estructura-proyecto.md
+      - Paginas: frontend/paginas.md
+      - Componentes: frontend/componentes.md
+      - Hooks: frontend/hooks.md
+      - Types: frontend/types.md
+      - Lib y Utils: frontend/lib-utils.md
+      - Middleware Auth: frontend/middleware-auth.md
+      - Design System: frontend/design-system.md
+      - API Routes: frontend/api-routes.md
+
+  - Backend:
+      - backend/index.md
+      - Estructura del Proyecto: backend/estructura-proyecto.md
+      - Endpoints:
+          - backend/endpoints/index.md
+          - Documentos: backend/endpoints/documentos.md
+          - Expedientes: backend/endpoints/expedientes.md
+          - Usuarios: backend/endpoints/usuarios.md
+          - Sectores: backend/endpoints/sectores.md
+          - Notas: backend/endpoints/notas.md
+          - Dashboard: backend/endpoints/dashboard.md
+      - Services:
+          - backend/services/index.md
+          - Documents Core: backend/services/documents-core.md
+          - Documents Lifecycle: backend/services/documents-lifecycle.md
+          - Documents Signing: backend/services/documents-signing.md
+          - Documents PDF Preview: backend/services/documents-pdf-preview.md
+          - Documents Retrieval: backend/services/documents-retrieval.md
+          - Cases Service: backend/services/cases-service.md
+          - Notes Service: backend/services/notes-service.md
+          - Storage Service: backend/services/storage-service.md
+          - Shared Services: backend/services/shared-services.md
+      - Models y Schemas: backend/models-schemas.md
+      - Middleware: backend/middleware.md
+      - Auth: backend/auth.md
+      - Database: backend/database.md
+      - API Gateway:
+          - backend/api-gateway/index.md
+          - MCP Server: backend/api-gateway/mcp-server.md
+          - REST API: backend/api-gateway/rest-api.md
+          - OAuth Discovery: backend/api-gateway/oauth-discovery.md
+
+  - PDFComposer:
+      - pdfcomposer/index.md
+      - Endpoints: pdfcomposer/endpoints.md
+      - Templates: pdfcomposer/templates.md
+      - Modelos: pdfcomposer/modelos.md
+      - Servicio PDF: pdfcomposer/servicio-pdf.md
+      - Gotenberg: pdfcomposer/gotenberg.md
+
+  - Notary:
+      - notary/index.md
+      - Endpoint Sign PDF: notary/endpoint-sign-pdf.md
+      - Layout de Firmas: notary/layout-firmas.md
+      - Firma PAdES: notary/firma-pades.md
+      - Firma Visual: notary/firma-visual.md
+      - Estampado: notary/estampado.md
+      - Certificados: notary/certificados.md
+      - Validaciones: notary/validaciones.md
+
+  - Database:
+      - database/index.md
+      - Schema Public: database/schema-public.md
+      - Schema Municipio: database/schema-municipio.md
+      - Schema Audit: database/schema-audit.md
+      - Scripts Deploy: database/scripts-deploy.md
+      - Numeracion: database/numeracion.md
+      - Enums y Tipos: database/enums-y-tipos.md
+      - Herramientas: database/herramientas.md
+
+  - Deploy:
+      - deploy/index.md
+      - Railway: deploy/railway.md
+      - Cloudflare R2: deploy/cloudflare-r2.md
+      - GitHub Actions: deploy/github-actions.md
+
+  - Guias:
+      - Desarrollo Local: guias/desarrollo-local.md
+      - Nuevo Endpoint: guias/nuevo-endpoint.md
+      - Nuevo Tipo de Documento: guias/nuevo-tipo-documento.md
+      - Nuevo Municipio: guias/nuevo-municipio.md
+      - Troubleshooting: guias/troubleshooting.md
+
+  - Glosario: glosario.md
+
+copyright: Copyright &copy; 2026 GDI Latam - Documentacion Tecnica

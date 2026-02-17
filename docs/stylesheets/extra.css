@@ -1,0 +1,108 @@
+/* GDI Tech Docs - Tema Indigo/Purple */
+
+:root {
+  --md-primary-fg-color: #1a237e;
+  --md-primary-fg-color--light: #283593;
+  --md-primary-fg-color--dark: #0d1259;
+
+  --md-accent-fg-color: #7c4dff;
+  --md-accent-fg-color--transparent: rgba(124, 77, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #3949ab;
+  --md-primary-fg-color--light: #5c6bc0;
+  --md-primary-fg-color--dark: #1a237e;
+}
+
+/* Grid cards hover */
+.md-typeset .grid.cards > ol > li,
+.md-typeset .grid.cards > ul > li {
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.md-typeset .grid.cards > ol > li:hover,
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.15);
+}
+
+/* Botones */
+.md-button {
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.md-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(124, 77, 255, 0.3);
+}
+
+.md-button--primary {
+  background-color: var(--md-primary-fg-color);
+}
+
+.md-button--primary:hover {
+  background-color: var(--md-primary-fg-color--light);
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  border-radius: 6px;
+}
+
+/* Tablas */
+.md-typeset table:not([class]) {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-primary-fg-color);
+  color: white;
+  font-weight: 600;
+}
+
+/* Codigo */
+.md-typeset code {
+  border-radius: 4px;
+}
+
+/* Header */
+.md-header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Nav activo */
+.md-nav__link--active {
+  font-weight: 600;
+  color: var(--md-accent-fg-color);
+}
+
+/* Search */
+.md-search__input {
+  border-radius: 20px;
+}
+
+/* Footer */
+.md-footer {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* Badge para puertos */
+.port-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background-color: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+  font-size: 0.85em;
+  font-weight: 600;
+  font-family: var(--md-code-font-family);
+}
+
+/* Mermaid diagrams */
+.mermaid {
+  text-align: center;
+}
