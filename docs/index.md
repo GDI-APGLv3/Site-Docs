@@ -93,6 +93,3 @@ hide:
 | GDI-eMailService | `:8003` | FastAPI, Jinja2, SMTP |
 | GDI-AgenteLANG | `:8004` | FastAPI, LangGraph, OpenRouter |
 | GDI-MCP | `:8005` | Integrado en Backend |
-
-!!! tip "Docs de negocio vs Docs tecnicas"
-    Este sitio documenta **como funciona el codigo**. Para documentacion funcional (que hace el sistema desde la perspectiva del usuario), ver [GDI Docs](https://gestiondocumentalinteligente.github.io/gdi-docs-site/).
