@@ -64,7 +64,7 @@ curl -X POST "http://localhost:8001/sign-pdf" \
      -F "seal=Director" \
      -F "department=Hacienda" \
      -F "entity=Municipalidad del Futuro" \
-     -F "tenant_id=100_test" \
+     -F "tenant_id=200_muni" \
      -F "document_number=IF-2025-00001234-MUNI" \
      -F "city=Ciudad Autonoma" \
      --output firmado.pdf
@@ -147,7 +147,7 @@ Health check sin autenticacion.
   "version": "2.1.0",
   "signature_system": { "type": "digital_signature", "version": "2.0" },
   "pades_system": { "type": "PAdES-B-T", "library": "pyHanko" },
-  "available_certificates": ["100_test"],
+  "available_certificates": ["200_muni"],
   "fallback_to_visual": true
 }
 ```
@@ -159,7 +159,7 @@ Informacion de un certificado especifico. Requiere API Key.
 ```json
 {
   "exists": true,
-  "tenant_id": "100_test",
+  "tenant_id": "200_muni",
   "subject": "<Name(CN=GESTION DOCUMENTAL INTELIGENTE,O=Municipalidad del Futuro)>",
   "issuer": "...",
   "not_valid_before": "2025-01-01T00:00:00+00:00",
@@ -177,6 +177,6 @@ Lista todos los certificados disponibles. Requiere API Key.
 ```json
 {
   "count": 1,
-  "certificates": ["100_test"]
+  "certificates": ["200_muni"]
 }
 ```

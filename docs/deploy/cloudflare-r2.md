@@ -21,7 +21,7 @@ Se utiliza para almacenar:
 | `gdi-assets` | Logos e imagenes de municipios | GDI-BackOffice-Back (escritura), Frontends (lectura) |
 
 !!! info "Convenciones de naming"
-    Los nombres de bucket siguen el patron `tenant-<schema_name>-<tipo>`. Ejemplo: para el schema `100_test`, los buckets son `tenant-test-oficial` y `tenant-test-tosign`.
+    Los nombres de bucket siguen el patron `tenant-<schema_name>-<tipo>`. Ejemplo: para el schema `200_muni`, los buckets son `tenant-test-oficial` y `tenant-test-tosign`.
 
 ---
 
@@ -72,7 +72,7 @@ r2_client = boto3.client(
 ```python
 r2_client.put_object(
     Bucket="tenant-test-oficial",
-    Key="100_test/official/2025/01/IF-2025-0001234-MUNI.pdf",
+    Key="200_muni/official/2025/01/IF-2025-0001234-MUNI.pdf",
     Body=pdf_bytes,
     ContentType="application/pdf",
 )
@@ -85,7 +85,7 @@ url = r2_client.generate_presigned_url(
     "get_object",
     Params={
         "Bucket": "tenant-test-oficial",
-        "Key": "100_test/official/2025/01/IF-2025-0001234-MUNI.pdf",
+        "Key": "200_muni/official/2025/01/IF-2025-0001234-MUNI.pdf",
     },
     ExpiresIn=600,  # 10 minutos
 )
@@ -96,7 +96,7 @@ url = r2_client.generate_presigned_url(
 ```python
 response = r2_client.get_object(
     Bucket="tenant-test-tosign",
-    Key="100_test/tosign/draft-uuid.pdf",
+    Key="200_muni/tosign/draft-uuid.pdf",
 )
 pdf_bytes = response["Body"].read()
 ```
@@ -106,7 +106,7 @@ pdf_bytes = response["Body"].read()
 ```python
 r2_client.delete_object(
     Bucket="tenant-test-tosign",
-    Key="100_test/tosign/draft-uuid.pdf",
+    Key="200_muni/tosign/draft-uuid.pdf",
 )
 ```
 
@@ -125,9 +125,9 @@ Los objetos en R2 se organizan con la siguiente estructura de keys:
 Ejemplos:
 
 ```
-100_test/official/2025/01/IF-2025-0001234-MUNI.pdf
-100_test/official/2025/01/DICT-2025-0000089-MUNI.pdf
-100_test/official/2025/02/RES-2025-0000001-MUNI.pdf
+200_muni/official/2025/01/IF-2025-0001234-MUNI.pdf
+200_muni/official/2025/01/DICT-2025-0000089-MUNI.pdf
+200_muni/official/2025/02/RES-2025-0000001-MUNI.pdf
 ```
 
 ### Bucket ToSign (`tenant-*-tosign`)
@@ -139,8 +139,8 @@ Ejemplos:
 Ejemplos:
 
 ```
-100_test/tosign/a1b2c3d4-e5f6-7890-abcd-ef1234567890.pdf
-100_test/tosign/f9e8d7c6-b5a4-3210-fedc-ba0987654321.pdf
+200_muni/tosign/a1b2c3d4-e5f6-7890-abcd-ef1234567890.pdf
+200_muni/tosign/f9e8d7c6-b5a4-3210-fedc-ba0987654321.pdf
 ```
 
 ### Bucket Assets (`gdi-assets`)
@@ -153,8 +153,8 @@ Ejemplos:
 Ejemplos:
 
 ```
-100_test/logos/municipalidad-logo.png
-100_test/isologos/municipalidad-isologo.png
+200_muni/logos/municipalidad-logo.png
+200_muni/isologos/municipalidad-isologo.png
 ```
 
 ---
@@ -190,9 +190,9 @@ graph LR
 Cada municipio (tenant) tiene sus propios buckets con un prefijo de schema en las keys:
 
 ```
-# Tenant 100_test
-tenant-test-oficial/100_test/official/...
-tenant-test-tosign/100_test/tosign/...
+# Tenant 200_muni
+tenant-test-oficial/200_muni/official/...
+tenant-test-tosign/200_muni/tosign/...
 
 # Tenant 200_municipio
 tenant-municipio-oficial/200_municipio/official/...

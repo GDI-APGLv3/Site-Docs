@@ -7,7 +7,7 @@ PKCS#12 (.p12) organizados por `tenant_id`.
 
 ```
 certs/
-├── 100_test.p12           # Certificado del tenant 100_test
+├── 200_muni.p12           # Certificado del tenant 200_muni
 ├── municipio_demo.p12     # Certificado del tenant municipio_demo
 ├── passwords.json         # Mapeo tenant_id -> password
 └── README.md
@@ -17,7 +17,7 @@ certs/
 
 ```json
 {
-  "100_test": "test123",
+  "200_muni": "test123",
   "municipio_demo": "otra_clave"
 }
 ```
@@ -148,7 +148,7 @@ El script `scripts/generate_test_cert.py` genera certificados auto-firmados:
 
 ```bash
 python scripts/generate_test_cert.py \
-  --tenant 100_test \
+  --tenant 200_muni \
   --cn "GESTION DOCUMENTAL INTELIGENTE" \
   --org "Municipalidad del Futuro" \
   --password test123

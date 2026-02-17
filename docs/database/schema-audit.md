@@ -1,6 +1,6 @@
 # Schema Audit
 
-Cada municipio tiene un schema de auditoria dedicado con nomenclatura `{schema_name}_audit` (ejemplo: `100_test_audit`). Registra automaticamente cambios en 6 tablas criticas mediante triggers.
+Cada municipio tiene un schema de auditoria dedicado con nomenclatura `{schema_name}_audit` (ejemplo: `200_muni_audit`). Registra automaticamente cambios en 6 tablas criticas mediante triggers.
 
 ## Arquitectura
 
@@ -179,7 +179,7 @@ CREATE TRIGGER "trg_audit_departments"
 
 ```sql
 SELECT event_time, table_name, operation, user_id, changed_fields
-FROM "100_test_audit".audit_log
+FROM "200_muni_audit".audit_log
 ORDER BY event_time DESC
 LIMIT 20;
 ```
@@ -190,7 +190,7 @@ LIMIT 20;
 SELECT event_time, operation, user_id, auth_source,
        new_row->>'case_number' as case_number,
        new_row->>'status' as status
-FROM "100_test_audit".audit_log
+FROM "200_muni_audit".audit_log
 WHERE table_name = 'cases'
   AND operation = 'UPDATE'
 ORDER BY event_time DESC;
@@ -200,7 +200,7 @@ ORDER BY event_time DESC;
 
 ```sql
 SELECT event_time, table_name, operation, changed_fields
-FROM "100_test_audit".audit_log
+FROM "200_muni_audit".audit_log
 WHERE user_id = 'uuid-del-usuario'
 ORDER BY event_time DESC;
 ```
@@ -213,7 +213,7 @@ SELECT event_time,
        new_row->>'type' as movement_type,
        new_row->>'reason' as reason,
        auth_source
-FROM "100_test_audit".audit_log
+FROM "200_muni_audit".audit_log
 WHERE table_name = 'case_movements'
   AND operation = 'INSERT'
 ORDER BY event_time DESC;

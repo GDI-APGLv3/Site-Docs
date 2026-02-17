@@ -56,7 +56,7 @@ Request entrante
     |
     v
 3. TESTING_MODE?
-    |  SI -> Leer X-Tenant-Schema (default: "100_test")
+    |  SI -> Leer X-Tenant-Schema (default: "200_muni")
     |         Buscar usuario por X-User-ID, Bearer UUID, o JWT email
     |         Guardar en request.state
     |
@@ -110,7 +110,7 @@ El TenantMiddleware inyecta estos valores en `request.state` para uso en endpoin
 
 | Atributo | Tipo | Descripcion |
 |----------|------|-------------|
-| `schema_name` | `str` | Schema PostgreSQL del tenant (ej: `"100_test"`) |
+| `schema_name` | `str` | Schema PostgreSQL del tenant (ej: `"200_muni"`) |
 | `tenant_user_id` | `str` | UUID del usuario en el schema |
 | `tenant_email` | `str` | Email del usuario |
 | `auth_source` | `str` | `"jwt"` o `"testing"` |

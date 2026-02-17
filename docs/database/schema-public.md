@@ -204,7 +204,7 @@ Registro de municipios activos. Cada fila representa un tenant con su propio sch
 | `country` | `country_enum` | NO | - | Codigo de pais (AR, BR, UY...) |
 | `primary_color` | VARCHAR(6) | NO | `'16158C'` | Color hex sin # |
 | `schema_number` | INT | NO | - | Numero auto-incremental (100, 101...) |
-| `schema_name` | TEXT | NO | - | Nombre del schema (ej: `100_test`) |
+| `schema_name` | TEXT | NO | - | Nombre del schema (ej: `200_muni`) |
 | `is_active` | BOOLEAN | NO | `true` | Si esta activo |
 | `created_at` | TIMESTAMPTZ | NO | `NOW()` | Fecha de creacion |
 | `created_by` | UUID | SI | - | Usuario que creo el registro |
@@ -212,7 +212,7 @@ Registro de municipios activos. Cada fila representa un tenant con su propio sch
 **Constraints:** PK `id`, UNIQUE `acronym`, UNIQUE `schema_number`, UNIQUE `schema_name`
 
 !!! note "Convencion de nombres"
-    El `schema_name` sigue el formato `{schema_number}_{acronym_lower}`, por ejemplo: `100_test`, `101_bsas`. El acronimo se genera automaticamente con WXYZ y puede cambiar cuando el municipio formaliza el contrato.
+    El `schema_name` sigue el formato `{schema_number}_{acronym_lower}`, por ejemplo: `200_muni`, `201_otra`. El acronimo se genera automaticamente con WXYZ y puede cambiar cuando el municipio formaliza el contrato.
 
 ---
 

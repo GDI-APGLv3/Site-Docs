@@ -35,8 +35,8 @@ Cada municipio opera en su propio schema de PostgreSQL. Esto garantiza aislamien
 ```
 PostgreSQL
 ├── public             # Tablas globales (roles, tipos globales, api_keys)
-├── 100_test           # Schema del municipio "Test" (33 tablas)
-├── 100_test_audit     # Auditoria del municipio "Test"
+├── 200_muni           # Schema del municipio "Test" (33 tablas)
+├── 200_muni_audit     # Auditoria del municipio "Test"
 ├── 200_salta          # Schema de otro municipio
 └── 200_salta_audit    # Su auditoria
 ```

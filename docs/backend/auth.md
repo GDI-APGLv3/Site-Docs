@@ -18,7 +18,7 @@ El backend usa **Auth0** con tokens **JWT RS256** para autenticacion. Definido e
 1. Frontend obtiene JWT de Auth0 (login)
 2. Frontend envia request con header:
    Authorization: Bearer <jwt_token>
-   X-Tenant-Schema: 100_san_miguel
+   X-Tenant-Schema: 200_muni
 3. TenantMiddleware valida email del JWT contra el schema
 4. auth.py valida JWT y obtiene AuthenticatedUser
 5. Endpoint recibe current_user con permisos

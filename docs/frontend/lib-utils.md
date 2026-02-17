@@ -114,7 +114,7 @@ import { getServerHeadersAsync } from '@/lib/getServerToken';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const headers = await getServerHeadersAsync(req);
-  // headers = { Authorization: "Bearer ...", X-Tenant-Schema: "100_test", ... }
+  // headers = { Authorization: "Bearer ...", X-Tenant-Schema: "200_muni", ... }
 
   const response = await fetch(backendUrl, { headers });
   const data = await response.json();
@@ -163,7 +163,7 @@ const response = await fetch('/api/documents', {
   }),
 });
 // Agrega automaticamente:
-// X-Tenant-Schema: "100_test"
+// X-Tenant-Schema: "200_muni"
 // X-User-ID: "uuid..." (solo en testing mode)
 ```
 

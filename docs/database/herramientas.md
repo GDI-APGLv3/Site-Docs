@@ -9,7 +9,7 @@
 psql "postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
 
 # Conectar a un schema especifico
-psql "postgresql://USER:PASSWORD@HOST:PORT/DATABASE" -c "SET search_path TO '100_test', public;"
+psql "postgresql://USER:PASSWORD@HOST:PORT/DATABASE" -c "SET search_path TO '200_muni', public;"
 ```
 
 ### pgAdmin 4
@@ -22,7 +22,7 @@ psql "postgresql://USER:PASSWORD@HOST:PORT/DATABASE" -c "SET search_path TO '100
     - **Username**: `postgres`
     - **Password**: password de Railway
 3. En el panel izquierdo, expandir: Servers > railway > Databases > railway > Schemas
-4. Los schemas de municipio aparecen como `100_test`, `101_bsas`, etc.
+4. Los schemas de municipio aparecen como `200_muni`, `201_otra`, etc.
 
 ### DBeaver
 
@@ -49,7 +49,7 @@ cp .env.example .env
 
 ### install.py - Instalacion limpia
 
-Elimina y recrea todo el entorno de desarrollo (`100_test`).
+Elimina y recrea todo el entorno de desarrollo (`200_muni`).
 
 ```bash
 cd GDI-BD/tools
@@ -58,20 +58,20 @@ python install.py
 
 ```
 ======================================================================
-  GDI LATAM - INSTALACION LIMPIA (100_test)
+  GDI LATAM - INSTALACION LIMPIA (200_muni)
 ======================================================================
 
   DATABASE_URL: postgresql://postgres:xxxxx@dev-railway...
   Flujo: 01-install.sql -> 02-seed-global.sql -> 04-seed-demo.sql
 
-  ATENCION: Esto eliminara los schemas 100_test y 100_test_audit
+  ATENCION: Esto eliminara los schemas 200_muni y 200_muni_audit
   y recreara toda la estructura desde cero.
 
   Continuar? (s/N): s
 ```
 
 !!! danger "Operacion destructiva"
-    `install.py` ejecuta `DROP SCHEMA IF EXISTS ... CASCADE` sobre `100_test` y `100_test_audit`. Todos los datos se pierden.
+    `install.py` ejecuta `DROP SCHEMA IF EXISTS ... CASCADE` sobre `200_muni` y `200_muni_audit`. Todos los datos se pierden.
 
 ### create_municipio.py - Crear municipio
 
@@ -157,7 +157,7 @@ VERIFICACION DE SCHEMAS Y TABLAS
     - roles
     - user_registry
 
-[Schema 100_test]
+[Schema 200_muni]
   Tablas: 33
     - case_movements
     - case_official_documents
@@ -204,9 +204,9 @@ ORDER BY table_schema;
 ```sql
 SELECT u.id, u.email, u.full_name, s.acronym as sector,
        d.name as departamento, d.acronym as dept_acronym
-FROM "100_test".users u
-LEFT JOIN "100_test".sectors s ON u.sector_id = s.id
-LEFT JOIN "100_test".departments d ON s.department_id = d.id
+FROM "200_muni".users u
+LEFT JOIN "200_muni".sectors s ON u.sector_id = s.id
+LEFT JOIN "200_muni".departments d ON s.department_id = d.id
 ORDER BY d.name, u.full_name;
 ```
 
@@ -214,7 +214,7 @@ ORDER BY d.name, u.full_name;
 
 ```sql
 SELECT id, acronym, name, type, trust, is_active
-FROM "100_test".document_types
+FROM "200_muni".document_types
 WHERE is_active = true
 ORDER BY id;
 ```
@@ -225,9 +225,9 @@ ORDER BY id;
 SELECT od.official_number, od.reference,
        dt.acronym as tipo, od.signed_at,
        u.full_name as numerador
-FROM "100_test".official_documents od
-JOIN "100_test".document_types dt ON od.document_type_id = dt.id
-JOIN "100_test".users u ON od.numerator_id = u.id
+FROM "200_muni".official_documents od
+JOIN "200_muni".document_types dt ON od.document_type_id = dt.id
+JOIN "200_muni".users u ON od.numerator_id = u.id
 ORDER BY od.signed_at DESC
 LIMIT 20;
 ```
@@ -239,11 +239,11 @@ SELECT c.case_number, c.reference, c.status,
        d.name as departamento_actual,
        cm.type as ultimo_movimiento,
        cm.created_at as fecha_movimiento
-FROM "100_test".cases c
-JOIN "100_test".departments d ON c.owner_department_id = d.id
+FROM "200_muni".cases c
+JOIN "200_muni".departments d ON c.owner_department_id = d.id
 LEFT JOIN LATERAL (
     SELECT type, created_at
-    FROM "100_test".case_movements
+    FROM "200_muni".case_movements
     WHERE case_id = c.id
     ORDER BY created_at DESC
     LIMIT 1
@@ -257,7 +257,7 @@ ORDER BY cm.created_at DESC;
 ```sql
 SELECT event_time, table_name, operation,
        user_id, auth_source, changed_fields
-FROM "100_test_audit".audit_log
+FROM "200_muni_audit".audit_log
 ORDER BY event_time DESC
 LIMIT 50;
 ```
@@ -267,7 +267,7 @@ LIMIT 50;
 ```sql
 SELECT indexname, tablename, indexdef
 FROM pg_indexes
-WHERE schemaname = '100_test'
+WHERE schemaname = '200_muni'
 ORDER BY tablename, indexname;
 ```
 
@@ -281,7 +281,7 @@ SELECT
     pg_size_pretty(pg_relation_size(schemaname || '.' || tablename)) as table_size,
     pg_size_pretty(pg_indexes_size(schemaname || '.' || tablename)) as index_size
 FROM pg_tables
-WHERE schemaname = '100_test'
+WHERE schemaname = '200_muni'
 ORDER BY pg_total_relation_size(schemaname || '.' || tablename) DESC;
 ```
 
@@ -289,7 +289,7 @@ ORDER BY pg_total_relation_size(schemaname || '.' || tablename) DESC;
 
 ```sql
 -- Busca "tramite" y encuentra "tramite" (y viceversa)
-SELECT * FROM "100_test".document_draft
+SELECT * FROM "200_muni".document_draft
 WHERE unaccent(reference) ILIKE '%' || unaccent('tramite') || '%';
 ```
 

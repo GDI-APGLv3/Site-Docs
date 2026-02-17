@@ -93,7 +93,7 @@ TESTING_MODE=true
 Y usar el header `X-User-ID` en lugar de JWT:
 
 ```bash
-curl -H "X-User-ID: 457c52a4-9305-4e8a-9642-0b9380a4768a" \
+curl -H "X-User-ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890" \
      http://localhost:8000/users
 ```
 
@@ -176,7 +176,7 @@ Ver [Gotenberg](../pdfcomposer/gotenberg.md) y [Railway](../deploy/railway.md#in
 
 ```sql
 -- Verificar buckets configurados para el municipio
-SELECT bucket_oficial, bucket_tosign FROM "100_test".settings;
+SELECT bucket_oficial, bucket_tosign FROM "200_muni".settings;
 ```
 
 **Solucion**:
@@ -264,7 +264,7 @@ SELECT * FROM public.municipalities;
 
 -- Verificar tabla especifica
 SELECT COUNT(*) FROM information_schema.tables
-WHERE table_schema = '100_test';
+WHERE table_schema = '200_muni';
 -- Debe retornar 33
 ```
 
@@ -287,7 +287,7 @@ cursor.execute(f'SET LOCAL search_path TO "{schema_name}", public')
 ```
 
 !!! info "Comillas dobles"
-    Los schemas que empiezan con numero (ej: `100_test`) requieren comillas dobles en SQL: `"100_test".users`. El Backend maneja esto automaticamente.
+    Los schemas que empiezan con numero (ej: `200_muni`) requieren comillas dobles en SQL: `"200_muni".users`. El Backend maneja esto automaticamente.
 
 Ver [Multi-Tenant](../arquitectura/multi-tenant.md) y [Database](../backend/database.md).
 

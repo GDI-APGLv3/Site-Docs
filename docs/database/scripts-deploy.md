@@ -10,11 +10,11 @@ GDI-BD/
 |   +-- 01-install.sql            # Extensiones + ENUMs + 9 tablas public
 |   +-- 02-seed-global.sql        # Datos globales: roles, doc types, case templates
 |   +-- 03-create-municipio.sql   # Template para crear municipio (con placeholders)
-|   +-- 04-seed-demo.sql          # Crear 100_test + datos demo (autonomo)
+|   +-- 04-seed-demo.sql          # Crear 200_muni + datos demo (autonomo)
 |
 +-- tools/                        # Scripts Python
 |   +-- create_municipio.py       # Crear municipio nuevo (interactivo)
-|   +-- install.py                # Instalacion limpia de 100_test
+|   +-- install.py                # Instalacion limpia de 200_muni
 |   +-- run_single_script.py      # Ejecutar script SQL individual
 |   +-- verify_db.py              # Verificar integridad de BD
 |
@@ -41,7 +41,7 @@ GDI-BD/
 
     El script `03` requiere reemplazo de 9 placeholders antes de ejecutar.
 
-=== "Dev/Test (100_test)"
+=== "Dev/Test (200_muni)"
 
     Se ejecutan 3 scripts. El tercero (`04-seed-demo.sql`) es autonomo y contiene toda la estructura y datos hardcoded.
 
@@ -52,7 +52,7 @@ GDI-BD/
     02-seed-global.sql       -- Datos globales
          |
          v
-    04-seed-demo.sql         -- 100_test completo (schemas + datos demo)
+    04-seed-demo.sql         -- 200_muni completo (schemas + datos demo)
     ```
 
 ---
@@ -106,7 +106,7 @@ Template para crear un municipio nuevo. Contiene **9 placeholders** que deben re
 
 | Placeholder | Ejemplo | Descripcion |
 |-------------|---------|-------------|
-| `{SCHEMA_NAME}` | `101_bsas` | Nombre del schema |
+| `{SCHEMA_NAME}` | `201_otra` | Nombre del schema |
 | `{MUNICIPALITY_NAME}` | `Municipalidad de Buenos Aires` | Nombre completo |
 | `{ACRONYM}` | `BSAS` | Acronimo (2-4 letras) |
 | `{COUNTRY}` | `AR` | Codigo de pais |
@@ -128,14 +128,14 @@ Template para crear un municipio nuevo. Contiene **9 placeholders** que deben re
 
 ### 04-seed-demo.sql
 
-Script autonomo que crea el tenant `100_test` completo. No necesita `03-create-municipio.sql` porque contiene toda la estructura embebida.
+Script autonomo que crea el tenant `200_muni` completo. No necesita `03-create-municipio.sql` porque contiene toda la estructura embebida.
 
 **Secciones:**
 
 | Seccion | Contenido |
 |---------|-----------|
-| 1 | Schema `100_test`: 33 tablas + indices + trigger sync |
-| 2 | Schema `100_test_audit`: audit_log + fn_log_change + 6 triggers |
+| 1 | Schema `200_muni`: 33 tablas + indices + trigger sync |
+| 2 | Schema `200_muni_audit`: audit_log + fn_log_change + 6 triggers |
 | 3 | Datos iniciales: settings + estado_users + municipio en public |
 | 4 | Datos demo: departamentos, sectores, ranks, usuarios, doc types, case templates, registry families |
 | 5 | Drafts de bienvenida: 5 documentos borrador tipo IF |
@@ -175,7 +175,7 @@ DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 
 ### install.py
 
-Instalacion limpia del tenant `100_test`. Elimina y recrea todo.
+Instalacion limpia del tenant `200_muni`. Elimina y recrea todo.
 
 ```bash
 cd GDI-BD/tools
@@ -185,7 +185,7 @@ python install.py
 **Flujo:**
 
 1. Pide confirmacion (elimina datos existentes)
-2. DROP schemas `100_test` y `100_test_audit`
+2. DROP schemas `200_muni` y `200_muni_audit`
 3. Ejecuta `01-install.sql`
 4. Ejecuta `02-seed-global.sql`
 5. Ejecuta `04-seed-demo.sql`
@@ -232,8 +232,8 @@ python verify_db.py
 **Verifica:**
 
 - Schema `public`: tablas y datos (roles, document types, case templates, municipalities, display states)
-- Schema `100_test`: tablas y datos (settings, estado_users, city_seals, document_types, case_templates)
-- Schema `100_test_audit`: tabla audit_log y conteo
+- Schema `200_muni`: tablas y datos (settings, estado_users, city_seals, document_types, case_templates)
+- Schema `200_muni_audit`: tabla audit_log y conteo
 
 ---
 

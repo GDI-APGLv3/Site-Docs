@@ -88,7 +88,7 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 | `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://api.gdilatam.com` |
 | `AI_WORKER_INTERVAL` | Intervalo del worker (segundos) | No | `60` (default) |
 | `AI_WORKER_BATCH_SIZE` | Documentos por batch | No | `10` (default) |
-| `ENABLED_SCHEMAS` | Schemas a procesar | No | `["100_test"]` |
+| `ENABLED_SCHEMAS` | Schemas a procesar | No | `["200_muni"]` |
 | `TRANSCRIPTION_ENABLED` | Habilitar transcripcion de PDFs | No | `true` (default) |
 | `TRANSCRIPTION_VISION_MODEL` | Modelo de vision para OCR | No | `google/gemini-flash-1.5` |
 | `TRANSCRIPTION_MAX_FILE_SIZE_MB` | Tamano maximo PDF (MB) | No | `10` |

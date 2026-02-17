@@ -305,7 +305,7 @@ interface DocumentType {
 
 ```typescript
 interface TenantAccess {
-  schema_name: string;        // "100_test"
+  schema_name: string;        // "200_muni"
   display_name: string;       // "Municipio Test"
   is_default: boolean;
   logo_url?: string | null;

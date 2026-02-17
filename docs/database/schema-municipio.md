@@ -1,6 +1,6 @@
 # Schema Municipio
 
-Cada municipio tiene su propio schema PostgreSQL con **33 tablas** organizadas en 9 grupos funcionales. El nombre del schema sigue la convencion `{numero}_{acronimo}`, por ejemplo: `100_test`, `101_bsas`.
+Cada municipio tiene su propio schema PostgreSQL con **33 tablas** organizadas en 9 grupos funcionales. El nombre del schema sigue la convencion `{numero}_{acronimo}`, por ejemplo: `200_muni`, `201_otra`.
 
 ## Resumen por Grupo
 
@@ -192,7 +192,7 @@ Jerarquias del municipio. El campo `level` determina el orden (1 = mas alto).
 
 **Constraints:** PK `id`, UNIQUE `name`, UNIQUE `level`
 
-**Ejemplo (100_test):** Intendente (level=1), Secretario (level=2), Director (level=3)
+**Ejemplo (200_muni):** Intendente (level=1), Secretario (level=2), Director (level=3)
 
 ### TABLA 9: city_seals
 
@@ -208,7 +208,7 @@ Sellos de firma del municipio. Pueden estar vinculados a un rango o ser generico
 
 **Constraints:** PK `id`, UNIQUE `name`, FK `rank_id` -> `ranks(id)`
 
-**Ejemplo (100_test):** Innovador (generico, rank_id=NULL), Intendente Municipal (rank_id=Intendente), Secretario, Director
+**Ejemplo (200_muni):** Innovador (generico, rank_id=NULL), Intendente Municipal (rank_id=Intendente), Secretario, Director
 
 ---
 

@@ -133,7 +133,7 @@ def execute_transaction(
 **Uso:**
 
 ```python
-with execute_transaction(schema_name="100_test") as (conn, cursor):
+with execute_transaction(schema_name="200_muni") as (conn, cursor):
     cursor.execute("INSERT INTO ...", params1)
     cursor.execute("UPDATE ...", params2)
     # Auto-commit si no hay excepciones
@@ -168,7 +168,7 @@ Valida que el schema sea seguro para SQL:
 
 - No vacio ni None
 - Solo letras, numeros y guion bajo (`^[a-zA-Z0-9_]+$`)
-- Ejemplos validos: `"100_test"`, `"public"`, `"municipio_abc"`
+- Ejemplos validos: `"200_muni"`, `"public"`, `"municipio_abc"`
 
 ## PgBouncer Transaction Mode
 

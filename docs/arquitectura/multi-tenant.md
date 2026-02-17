@@ -18,7 +18,7 @@ PostgreSQL (Railway)
 │   ├── api_key_users         # Usuarios autorizados por API Key
 │   └── global_registry_families
 │
-├── 100_test                  # Municipio "Test" (33 tablas)
+├── 200_muni                  # Municipio "Test" (33 tablas)
 │   ├── users
 │   ├── departments
 │   ├── sectors
@@ -30,7 +30,7 @@ PostgreSQL (Railway)
 │   ├── document_chunks       # Embeddings para RAG
 │   └── ... (33 tablas total)
 │
-├── 100_test_audit            # Auditoria del municipio "Test"
+├── 200_muni_audit            # Auditoria del municipio "Test"
 │   └── audit_log
 │
 ├── 200_salta                 # Otro municipio (misma estructura)
@@ -46,8 +46,8 @@ Los schemas siguen el patron `{numero}_{nombre}`:
 
 | Schema | Municipio | Uso |
 |--------|-----------|-----|
-| `100_test` | Municipio de prueba | Desarrollo y demos |
-| `100_test_audit` | Auditoria de test | Logs de cambios |
+| `200_muni` | Municipio de prueba | Desarrollo y demos |
+| `200_muni_audit` | Auditoria de test | Logs de cambios |
 
 Cada municipio nuevo recibe un numero unico y su nombre como identificador.
 
@@ -87,9 +87,9 @@ El BackOffice soporta tres modos de autenticacion para determinar el tenant:
     ```
     TESTING_MODE=true
     Headers: X-User-ID o Bearer UUID
-    Schema fijo: 100_test
+    Schema fijo: 200_muni
     ```
-    En modo testing, el schema siempre es `100_test`.
+    En modo testing, el schema siempre es `200_muni`.
 
 === "JWT (Produccion)"
     ```
@@ -157,14 +157,14 @@ get_tenant_r2_client(*, schema_name: str)
 
 ## Ejemplo de Query con Schema
 
-Los schemas de municipio pueden empezar con numero (ej: `100_test`), lo que requiere comillas dobles en SQL:
+Los schemas de municipio pueden empezar con numero (ej: `200_muni`), lo que requiere comillas dobles en SQL:
 
 ```sql
 -- Query directa con schema
-SELECT * FROM "100_test".official_documents WHERE document_id = $1;
+SELECT * FROM "200_muni".official_documents WHERE document_id = $1;
 
 -- SET search_path (usado internamente)
-SET search_path TO "100_test";
+SET search_path TO "200_muni";
 SELECT * FROM official_documents WHERE document_id = $1;
 ```
 
@@ -241,8 +241,8 @@ El almacenamiento en Cloudflare R2 tambien es por tenant. Los nombres de bucket 
 
 ```
 Cloudflare R2
-├── tenant-test-tosign     # PDFs pendientes de firma (100_test)
-├── tenant-test-oficial    # PDFs firmados (100_test)
+├── tenant-test-tosign     # PDFs pendientes de firma (200_muni)
+├── tenant-test-oficial    # PDFs firmados (200_muni)
 ├── tenant-salta-tosign    # PDFs pendientes (200_salta)
 └── tenant-salta-oficial   # PDFs firmados (200_salta)
 ```
@@ -250,7 +250,7 @@ Cloudflare R2
 La configuracion de buckets esta en la tabla `settings` de cada schema:
 
 ```sql
-SELECT bucket_oficial, bucket_tosign FROM "100_test".settings;
+SELECT bucket_oficial, bucket_tosign FROM "200_muni".settings;
 -- tenant-test-oficial, tenant-test-tosign
 ```
 
@@ -270,10 +270,10 @@ sequenceDiagram
     FE->>BE: GET /documents (Bearer JWT)
     BE->>BE: Valida JWT
     BE->>BE: Extrae municipality_id del JWT
-    BE->>BE: Resuelve schema_name = "100_test"
-    BE->>PG: SET search_path TO "100_test"
+    BE->>BE: Resuelve schema_name = "200_muni"
+    BE->>PG: SET search_path TO "200_muni"
     BE->>PG: SELECT * FROM documents...
-    PG-->>BE: Datos del tenant 100_test
+    PG-->>BE: Datos del tenant 200_muni
     BE-->>FE: JSON response
     FE-->>U: Muestra documentos
 ```

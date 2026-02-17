@@ -54,8 +54,8 @@ Cada municipio tiene su propia tabla `document_types` que referencia al catalogo
 ### Agregar a `document_types` del municipio
 
 ```sql
--- Habilitar el tipo en el municipio 100_test
-INSERT INTO "100_test".document_types (
+-- Habilitar el tipo en el municipio 200_muni
+INSERT INTO "200_muni".document_types (
     acronym, name, type, global_document_type_id, is_active
 )
 VALUES (
@@ -73,13 +73,13 @@ La tabla `document_types_allowed_by_rank` define que rangos pueden crear cada ti
 
 ```sql
 -- Obtener el ID local del tipo recien creado
--- SELECT id FROM "100_test".document_types WHERE acronym = 'MITIPO';
+-- SELECT id FROM "200_muni".document_types WHERE acronym = 'MITIPO';
 
 -- Permitir que rangos 1, 2 y 3 creen este tipo
-INSERT INTO "100_test".document_types_allowed_by_rank (document_type_id, rank_id)
+INSERT INTO "200_muni".document_types_allowed_by_rank (document_type_id, rank_id)
 SELECT dt.id, r.id
-FROM "100_test".document_types dt
-CROSS JOIN "100_test".ranks r
+FROM "200_muni".document_types dt
+CROSS JOIN "200_muni".ranks r
 WHERE dt.acronym = 'MITIPO';
 ```
 
@@ -89,10 +89,10 @@ La tabla `enabled_document_types_by_sector` permite restringir tipos por sector:
 
 ```sql
 -- Habilitar solo para sectores especificos
-INSERT INTO "100_test".enabled_document_types_by_sector (document_type_id, sector_id)
+INSERT INTO "200_muni".enabled_document_types_by_sector (document_type_id, sector_id)
 SELECT dt.id, s.sector_id
-FROM "100_test".document_types dt
-CROSS JOIN "100_test".sectors s
+FROM "200_muni".document_types dt
+CROSS JOIN "200_muni".sectors s
 WHERE dt.acronym = 'MITIPO'
 AND s.sector_type = 'PRIV';  -- Solo sectores privados
 ```
@@ -102,11 +102,11 @@ AND s.sector_type = 'PRIV';  -- Solo sectores privados
 
 ### Actualizar seeds para futuros deploys
 
-En `GDI-BD/sql/04-seed-demo.sql`, agregar el tipo al INSERT de document_types del schema 100_test para que nuevas instalaciones lo incluyan:
+En `GDI-BD/sql/04-seed-demo.sql`, agregar el tipo al INSERT de document_types del schema 200_muni para que nuevas instalaciones lo incluyan:
 
 ```sql
 -- En la seccion de document_types de 04-seed-demo.sql
-INSERT INTO "100_test".document_types (acronym, name, type, global_document_type_id, is_active)
+INSERT INTO "200_muni".document_types (acronym, name, type, global_document_type_id, is_active)
 VALUES
     -- ... tipos existentes ...
     ('MITIPO', 'Mi Tipo de Documento', 'HTML', 62, true);
@@ -125,7 +125,7 @@ El endpoint `GET /document-types` retorna todos los tipos activos del municipio:
 ```bash
 curl http://localhost:8000/document-types \
   -H "X-User-ID: user-uuid" \
-  -H "X-Tenant-Schema: 100_test"
+  -H "X-Tenant-Schema: 200_muni"
 ```
 
 ### Para tipos con logica especial

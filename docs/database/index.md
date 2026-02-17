@@ -30,13 +30,13 @@ PostgreSQL (Railway)
 |   +-- global_registry_families    # Familias de registros
 |   +-- (tablas LangGraph)          # Creadas automaticamente por GDI-AgenteLANG
 |
-+-- {schema_municipio}/             # Ej: 100_test, 101_bsas
++-- {schema_municipio}/             # Ej: 200_muni, 201_otra
 |   +-- 33 tablas (Grupos A-I)
 |   +-- ~47 indices
 |   +-- 1 trigger (sync user_registry)
 |   +-- 1 funcion (fn_sync_user_registry)
 |
-+-- {schema_municipio}_audit/       # Ej: 100_test_audit
++-- {schema_municipio}_audit/       # Ej: 200_muni_audit
     +-- audit_log                   # Registro de auditoria
     +-- fn_log_change               # Funcion de auditoria
     +-- 6 triggers de auditoria
@@ -59,7 +59,7 @@ PostgreSQL (Railway)
 postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 ```
 
-El schema de pruebas es `100_test`. Cada backend se conecta y setea `search_path` al schema del tenant en cada request.
+El schema de pruebas es `200_muni`. Cada backend se conecta y setea `search_path` al schema del tenant en cada request.
 
 ## Extensiones
 
@@ -121,7 +121,7 @@ Ver: [Schema Audit](schema-audit.md)
     03-create-municipio.sql  -- Schema + audit + datos iniciales (por municipio)
     ```
 
-=== "Dev/Test (100_test)"
+=== "Dev/Test (200_muni)"
 
     ```
     01-install.sql       -- Extensiones + ENUMs + 9 tablas public
@@ -130,7 +130,7 @@ Ver: [Schema Audit](schema-audit.md)
     02-seed-global.sql   -- Datos globales
          |
          v
-    04-seed-demo.sql     -- 100_test completo con datos demo (autonomo)
+    04-seed-demo.sql     -- 200_muni completo con datos demo (autonomo)
     ```
 
 Ver: [Scripts de Deploy](scripts-deploy.md)

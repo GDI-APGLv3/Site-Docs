@@ -78,7 +78,7 @@ Contexto compartido entre tools y handlers REST:
 class MCPContext:
     user_id: str            # UUID del usuario autenticado
     municipality_id: str    # UUID de la municipalidad
-    schema_name: str        # Schema de BD (ej: "100_test")
+    schema_name: str        # Schema de BD (ej: "200_muni")
     user_full_name: str     # Nombre completo
     user_email: str         # Email
 ```

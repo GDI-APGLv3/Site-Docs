@@ -114,7 +114,7 @@ Terminos tecnicos utilizados en la documentacion de GDI.
 ## S
 
 **Schema (PostgreSQL)**
-:   Namespace de base de datos. `public` contiene tablas globales (tenants, users). Cada municipio tiene su propio schema (ej: `100_test`).
+:   Namespace de base de datos. `public` contiene tablas globales (tenants, users). Cada municipio tiene su propio schema (ej: `200_muni`).
 
 **Sector**
 :   Unidad organizacional dentro de un municipio (Direccion, Departamento, etc.).

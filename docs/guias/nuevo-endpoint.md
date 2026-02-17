@@ -254,8 +254,8 @@ uvicorn main:app --reload --port 8000
 # Crear recurso (TESTING_MODE=true)
 curl -X POST http://localhost:8000/api/v1/mi-feature/ \
   -H "Content-Type: application/json" \
-  -H "X-User-ID: 457c52a4-9305-4e8a-9642-0b9380a4768a" \
-  -H "X-Tenant-Schema: 100_test" \
+  -H "X-User-ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890" \
+  -H "X-Tenant-Schema: 200_muni" \
   -d '{
     "titulo": "Mi primer recurso",
     "descripcion": "Prueba de endpoint",
@@ -264,8 +264,8 @@ curl -X POST http://localhost:8000/api/v1/mi-feature/ \
 
 # Obtener recurso
 curl http://localhost:8000/api/v1/mi-feature/uuid-del-recurso \
-  -H "X-User-ID: 457c52a4-9305-4e8a-9642-0b9380a4768a" \
-  -H "X-Tenant-Schema: 100_test"
+  -H "X-User-ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890" \
+  -H "X-Tenant-Schema: 200_muni"
 ```
 
 ### Health check

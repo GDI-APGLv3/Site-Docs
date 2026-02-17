@@ -188,7 +188,7 @@ Prioridad 3: Sin auth -> Error 401
 | Header | Valor | Descripcion |
 |--------|-------|-------------|
 | `Authorization` | `Bearer {jwt}` | Token JWT de Auth0 |
-| `X-Tenant-Schema` | `100_test` | Schema del tenant (pasado desde el cliente) |
+| `X-Tenant-Schema` | `200_muni` | Schema del tenant (pasado desde el cliente) |
 | `X-User-Email` | `user@email.com` | Email como fallback para JWT sin email claim |
 | `Content-Type` | `application/json` | Tipo de contenido (opcional) |
 | `accept` | `application/json` | Formato de respuesta |

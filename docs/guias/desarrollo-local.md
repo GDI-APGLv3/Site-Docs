@@ -150,7 +150,7 @@ GDI_BACKEND_URL=http://localhost:8000
 INTERNAL_API_KEY=gdi-internal-dev
 AUTH0_DOMAIN=tu-tenant.us.auth0.com
 AUTH0_AUDIENCE=https://api.gdilatam.com
-ENABLED_SCHEMAS=["100_test"]
+ENABLED_SCHEMAS=["200_muni"]
 ```
 
 Ver referencia completa en [Variables de Entorno](../arquitectura/variables-entorno.md).
@@ -172,7 +172,7 @@ psql -U postgres -d gdi -f sql/01-install.sql
 # Paso 2: Datos globales (roles, document types, case templates)
 psql -U postgres -d gdi -f sql/02-seed-global.sql
 
-# Paso 3: Schema de prueba 100_test con datos demo
+# Paso 3: Schema de prueba 200_muni con datos demo
 psql -U postgres -d gdi -f sql/04-seed-demo.sql
 ```
 
@@ -294,7 +294,7 @@ Con `TESTING_MODE=true`, el Backend acepta un header `X-User-ID` con el UUID del
 
 ```bash
 # Request autenticado en modo testing
-curl -H "X-User-ID: 457c52a4-9305-4e8a-9642-0b9380a4768a" \
+curl -H "X-User-ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890" \
      http://localhost:8000/users
 ```
 
@@ -313,7 +313,7 @@ El Backend usa un sistema de logging con `correlation_id` para rastrear requests
 
 ```bash
 # Los logs incluyen el schema del tenant
-[2026-02-16 10:00:00] [req-abc-123] [100_test] INFO: GET /documents 200
+[2026-02-16 10:00:00] [req-abc-123] [200_muni] INFO: GET /documents 200
 ```
 
 ### Virtualenvs Python
