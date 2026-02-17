@@ -17,11 +17,11 @@ Railway soporta multiples ambientes dentro del mismo proyecto. GDI tiene dos:
 
 | Ambiente | Nombre Interno | Host BD | Uso |
 |----------|---------------|---------|-----|
-| **dev** | shortline | `shortline.proxy.rlwy.net` | Demo en vivo -- NO TOCAR |
-| **dev-test** | caboose | `caboose.proxy.rlwy.net:39969` | Desarrollo y pruebas |
+| **dev** | prod-railway | `prod-host.proxy.rlwy.net` | Demo en vivo -- NO TOCAR |
+| **dev-test** | dev-railway | `dev-host.proxy.rlwy.net:5432` | Desarrollo y pruebas |
 
 !!! danger "Ambiente de demo"
-    El ambiente **dev (shortline)** es la demo para stakeholders. No hacer cambios de variables, deployments experimentales ni migraciones de BD en este ambiente.
+    El ambiente **dev (prod-railway)** es la demo para stakeholders. No hacer cambios de variables, deployments experimentales ni migraciones de BD en este ambiente.
 
 ```bash
 # Cambiar entre ambientes via CLI
@@ -47,7 +47,7 @@ railway environment use dev-test
 
 | Variable | Descripcion | Ejemplo |
 |----------|-------------|---------|
-| `DB_HOST` | Host PostgreSQL | `shortline.proxy.rlwy.net` |
+| `DB_HOST` | Host PostgreSQL | `prod-host.proxy.rlwy.net` |
 | `DB_PORT` | Puerto PostgreSQL | `33832` |
 | `DB_USER` | Usuario BD | `postgres` |
 | `DB_PASSWORD` | Password BD | `<RAILWAY_SECRET>` |
@@ -264,7 +264,7 @@ No requiere variables de entorno personalizadas.
 | **Tipo** | Railway Managed |
 | **Puerto interno** | 5432 |
 | **Puerto proxy (dev)** | 33832 |
-| **Puerto proxy (dev-test)** | 39969 |
+| **Puerto proxy (dev-test)** | 5432 |
 
 ---
 

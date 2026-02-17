@@ -46,11 +46,11 @@ PostgreSQL (Railway)
 
 | Ambiente | Nombre Railway | Host | Puerto | Uso |
 |----------|---------------|------|--------|-----|
-| dev | shortline | shortline.proxy.rlwy.net | default | Demo online - **NO TOCAR** |
-| dev-test | caboose | caboose.proxy.rlwy.net | 39969 | Desarrollo y pruebas |
+| dev | prod-railway | prod-host.proxy.rlwy.net | default | Demo online - **NO TOCAR** |
+| dev-test | dev-railway | dev-host.proxy.rlwy.net | 5432 | Desarrollo y pruebas |
 
 !!! warning "Ambiente de desarrollo"
-    Siempre trabajar sobre **dev-test (caboose)**. El ambiente **dev (shortline)** es la demo publica y no debe modificarse sin autorizacion.
+    Siempre trabajar sobre **dev-test (dev-railway)**. El ambiente **dev (prod-railway)** es la demo publica y no debe modificarse sin autorizacion.
 
 ### Conexion
 

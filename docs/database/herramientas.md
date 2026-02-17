@@ -16,8 +16,8 @@ psql "postgresql://USER:PASSWORD@HOST:PORT/DATABASE" -c "SET search_path TO '100
 
 1. Descargar desde [pgadmin.org](https://www.pgadmin.org/)
 2. Registrar servidor nuevo:
-    - **Host**: el host de Railway (ej: `caboose.proxy.rlwy.net`)
-    - **Port**: el puerto de Railway (ej: `39969`)
+    - **Host**: el host de Railway (ej: `dev-host.proxy.rlwy.net`)
+    - **Port**: el puerto de Railway (ej: `5432`)
     - **Database**: `railway`
     - **Username**: `postgres`
     - **Password**: password de Railway
@@ -61,7 +61,7 @@ python install.py
   GDI LATAM - INSTALACION LIMPIA (100_test)
 ======================================================================
 
-  DATABASE_URL: postgresql://postgres:xxxxx@caboose...
+  DATABASE_URL: postgresql://postgres:xxxxx@dev-railway...
   Flujo: 01-install.sql -> 02-seed-global.sql -> 04-seed-demo.sql
 
   ATENCION: Esto eliminara los schemas 100_test y 100_test_audit

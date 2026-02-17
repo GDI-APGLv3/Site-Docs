@@ -39,8 +39,8 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 
 | Variable | Descripcion | Requerida | Ejemplo |
 |----------|-------------|-----------|---------|
-| `DB_HOST` | Host PostgreSQL | Si | `caboose.proxy.rlwy.net` |
-| `DB_PORT` | Puerto PostgreSQL | Si | `39969` |
+| `DB_HOST` | Host PostgreSQL | Si | `dev-host.proxy.rlwy.net` |
+| `DB_PORT` | Puerto PostgreSQL | Si | `5432` |
 | `DB_USER` | Usuario PostgreSQL | Si | `postgres` |
 | `DB_PASSWORD` | Password PostgreSQL | Si | `(secreto)` |
 | `DB_NAME` | Nombre de la base de datos | Si | `railway` |

@@ -178,15 +178,15 @@ psql -U postgres -d gdi -f sql/04-seed-demo.sql
 
 ### Opcion B: Conectar a Railway dev-test
 
-Si no quieres instalar PostgreSQL local, puedes conectar directamente al ambiente dev-test (caboose):
+Si no quieres instalar PostgreSQL local, puedes conectar directamente al ambiente dev-test (dev-railway):
 
 ```bash
 # Usar la DATABASE_URL de Railway en tu .env
-DATABASE_URL=postgresql://postgres:PASSWORD@caboose.proxy.rlwy.net:39969/railway
+DATABASE_URL=postgresql://postgres:PASSWORD@dev-host.proxy.rlwy.net:5432/railway
 ```
 
 !!! danger "Ambiente de demo"
-    Nunca conectar a **dev (shortline)**. Es el ambiente de demo publica. Usar siempre **dev-test (caboose)** para desarrollo.
+    Nunca conectar a **dev (prod-railway)**. Es el ambiente de demo publica. Usar siempre **dev-test (dev-railway)** para desarrollo.
 
 Ver mas detalles en [Base de Datos](../database/index.md) y [Scripts de Deploy](../database/scripts-deploy.md).
 

@@ -117,15 +117,15 @@ graph TB
 
 | Ambiente | Nombre Railway | Uso | Estado |
 |----------|---------------|-----|--------|
-| **dev** | shortline | Demo online para stakeholders | NO TOCAR |
-| **dev-test** | caboose | Desarrollo y pruebas | Uso activo |
+| **dev** | prod-railway | Demo online para stakeholders | NO TOCAR |
+| **dev-test** | dev-railway | Desarrollo y pruebas | Uso activo |
 
 !!! danger "Regla critica"
-    El ambiente **dev (shortline)** es la demo en vivo. Nunca modificar datos ni hacer deployments experimentales en este ambiente.
+    El ambiente **dev (prod-railway)** es la demo en vivo. Nunca modificar datos ni hacer deployments experimentales en este ambiente.
 
 !!! tip "Desarrollo"
-    Siempre usar el ambiente **dev-test (caboose)** para desarrollo y pruebas.
-    Connection string: `postgresql://postgres:<PASSWORD>@caboose.proxy.rlwy.net:39969/railway`
+    Siempre usar el ambiente **dev-test (dev-railway)** para desarrollo y pruebas.
+    Connection string: `postgresql://postgres:<PASSWORD>@dev-host.proxy.rlwy.net:5432/railway`
 
 ---
 
