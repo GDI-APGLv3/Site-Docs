@@ -6,7 +6,7 @@ El backend usa **Auth0** con tokens **JWT RS256** para autenticacion. Definido e
 
 | Variable | Valor Default |
 |----------|--------------|
-| `AUTH0_DOMAIN` | `gdilatam.us.auth0.com` |
+| `AUTH0_DOMAIN` | `tu-tenant.us.auth0.com` |
 | `AUTH0_AUDIENCE` | Configurado en `.env` |
 | `AUTH0_ALGORITHMS` | `["RS256"]` |
 

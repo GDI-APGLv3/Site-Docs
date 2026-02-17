@@ -104,7 +104,7 @@ curl -H "X-User-ID: 457c52a4-9305-4e8a-9642-0b9380a4768a" \
 railway variables | grep AUTH0
 
 # Deben coincidir:
-# AUTH0_DOMAIN=gdilatam.us.auth0.com
+# AUTH0_DOMAIN=tu-tenant.us.auth0.com
 # AUTH0_AUDIENCE=https://api.gdilatam.com
 ```
 

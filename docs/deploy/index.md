@@ -23,7 +23,7 @@ graph TB
     end
 
     subgraph Auth0["Auth0 (Identidad)"]
-        Auth0_Tenant["gdilatam.us.auth0.com"]
+        Auth0_Tenant["tu-tenant.us.auth0.com"]
     end
 
     subgraph GitHub["GitHub (GDI-ALFA)"]

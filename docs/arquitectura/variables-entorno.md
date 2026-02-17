@@ -7,7 +7,7 @@ Tabla consolidada de todas las variables de entorno del ecosistema GDI, agrupada
 | Variable | Descripcion | Requerida | Ejemplo |
 |----------|-------------|-----------|---------|
 | `DATABASE_URL` | Connection string PostgreSQL | Si | `postgresql://user:pass@host:port/db` |
-| `AUTH0_DOMAIN` | Dominio Auth0 | Si | `gdilatam.us.auth0.com` |
+| `AUTH0_DOMAIN` | Dominio Auth0 | Si | `tu-tenant.us.auth0.com` |
 | `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://api.gdilatam.com` |
 | `PDFCOMPOSER_URL` | URL de GDI-PDFComposer | Si | `http://gdi-pdfcomposer.railway.internal:8002` |
 | `PDFCOMPOSER_API_KEY` | API Key para PDFComposer | Si | `(secreto)` |
@@ -44,8 +44,8 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 | `DB_USER` | Usuario PostgreSQL | Si | `postgres` |
 | `DB_PASSWORD` | Password PostgreSQL | Si | `(secreto)` |
 | `DB_NAME` | Nombre de la base de datos | Si | `railway` |
-| `AUTH0_DOMAIN` | Dominio Auth0 | Si | `gdilatam.us.auth0.com` |
-| `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://gdilatam.us.auth0.com/api/v2/` |
+| `AUTH0_DOMAIN` | Dominio Auth0 | Si | `tu-tenant.us.auth0.com` |
+| `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://tu-tenant.us.auth0.com/api/v2/` |
 | `FRONTEND_URL` | URL del BackOffice Front (CORS) | No | `http://localhost:3013` |
 | `BACKOFFICE_URL` | URL propia (referencia) | No | `http://localhost:8010` |
 | `TESTING_MODE` | Modo testing | No | `true` / `false` |
@@ -57,7 +57,7 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 |----------|-------------|-----------|---------|
 | `AUTH0_SECRET` | Secret para sesiones NextAuth | Si | `(secreto largo)` |
 | `AUTH0_BASE_URL` | URL base del frontend | Si | `http://localhost:3003` |
-| `AUTH0_ISSUER_BASE_URL` | URL de Auth0 | Si | `https://gdilatam.us.auth0.com` |
+| `AUTH0_ISSUER_BASE_URL` | URL de Auth0 | Si | `https://tu-tenant.us.auth0.com` |
 | `AUTH0_CLIENT_ID` | Client ID Auth0 | Si | `(secreto)` |
 | `AUTH0_CLIENT_SECRET` | Client Secret Auth0 | Si | `(secreto)` |
 | `NEXT_PUBLIC_API_URL` | URL del Backend API | Si | `http://localhost:8000` |
@@ -68,7 +68,7 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 |----------|-------------|-----------|---------|
 | `AUTH0_SECRET` | Secret para sesiones NextAuth | Si | `(secreto largo)` |
 | `AUTH0_BASE_URL` | URL base del frontend | Si | `http://localhost:3013` |
-| `AUTH0_ISSUER_BASE_URL` | URL de Auth0 | Si | `https://gdilatam.us.auth0.com` |
+| `AUTH0_ISSUER_BASE_URL` | URL de Auth0 | Si | `https://tu-tenant.us.auth0.com` |
 | `AUTH0_CLIENT_ID` | Client ID Auth0 | Si | `(secreto)` |
 | `AUTH0_CLIENT_SECRET` | Client Secret Auth0 | Si | `(secreto)` |
 | `NEXT_PUBLIC_API_URL` | URL del BackOffice Backend | Si | `http://localhost:8010` |
@@ -84,7 +84,7 @@ Integrado en GDI-Backend (`api_gateway/`). Comparte las variables del Backend ma
 | `EMBEDDINGS_MODEL` | Modelo de embeddings | Si | `openai/text-embedding-3-small` |
 | `GDI_BACKEND_URL` | URL del Backend | Si | `http://gdi-backend.railway.internal:8000` |
 | `INTERNAL_API_KEY` | API Key interna para Backend | Si | `gdi-internal-2026` |
-| `AUTH0_DOMAIN` | Dominio Auth0 | Si | `gdilatam.us.auth0.com` |
+| `AUTH0_DOMAIN` | Dominio Auth0 | Si | `tu-tenant.us.auth0.com` |
 | `AUTH0_AUDIENCE` | Audience Auth0 | Si | `https://api.gdilatam.com` |
 | `AI_WORKER_INTERVAL` | Intervalo del worker (segundos) | No | `60` (default) |
 | `AI_WORKER_BATCH_SIZE` | Documentos por batch | No | `10` (default) |

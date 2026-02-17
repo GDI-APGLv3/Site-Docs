@@ -32,7 +32,7 @@ Server responde 401 + WWW-Authenticate:
 Server responde:
     {
         "resource": "https://mcp.gdilatam.com",
-        "authorization_servers": ["https://gdilatam.us.auth0.com"],
+        "authorization_servers": ["https://tu-tenant.us.auth0.com"],
         "scopes_supported": ["openid", "profile", "email", "offline_access"],
         "bearer_methods_supported": ["header"]
     }
@@ -42,10 +42,10 @@ Server responde:
     v
 Server hace proxy del openid-configuration de Auth0:
     {
-        "issuer": "https://gdilatam.us.auth0.com/",
-        "authorization_endpoint": "https://gdilatam.us.auth0.com/authorize",
-        "token_endpoint": "https://gdilatam.us.auth0.com/oauth/token",
-        "registration_endpoint": "https://gdilatam.us.auth0.com/oidc/register",
+        "issuer": "https://tu-tenant.us.auth0.com/",
+        "authorization_endpoint": "https://tu-tenant.us.auth0.com/authorize",
+        "token_endpoint": "https://tu-tenant.us.auth0.com/oauth/token",
+        "registration_endpoint": "https://tu-tenant.us.auth0.com/oidc/register",
         ...
     }
     |
@@ -69,7 +69,7 @@ Indica a clientes MCP **donde autenticarse**.
 {
     "resource": "https://mcp.gdilatam.com",
     "authorization_servers": [
-        "https://gdilatam.us.auth0.com"
+        "https://tu-tenant.us.auth0.com"
     ],
     "scopes_supported": [
         "openid",
@@ -87,7 +87,7 @@ Metadata completa del authorization server. **Proxy** del endpoint de Auth0:
 
 ```
 GET /.well-known/oauth-authorization-server
-    -> Proxy a https://gdilatam.us.auth0.com/.well-known/openid-configuration
+    -> Proxy a https://tu-tenant.us.auth0.com/.well-known/openid-configuration
     -> Modifica registration_endpoint para DCR
 ```
 

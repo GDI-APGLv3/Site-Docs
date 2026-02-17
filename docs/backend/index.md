@@ -62,7 +62,7 @@ Cliente (Frontend/MCP)
 | GDI-PDFComposer | `gdi-pdfcomposer.railway.internal` | Generar PDFs (preview, final, CAEX, PV) |
 | GDI-Notary | `gdi-notary.railway.internal` | Firma digital multi-firmante |
 | Cloudflare R2 | S3 API | Almacenamiento de PDFs |
-| Auth0 | `gdilatam.us.auth0.com` | Autenticacion OAuth 2.0 |
+| Auth0 | `tu-tenant.us.auth0.com` | Autenticacion OAuth 2.0 |
 
 ## Variables de Entorno
 
@@ -70,7 +70,7 @@ Cliente (Frontend/MCP)
 |----------|-------------|
 | `DATABASE_URL` | Connection string PostgreSQL |
 | `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` | Conexion individual a BD |
-| `AUTH0_DOMAIN` | Dominio Auth0 (`gdilatam.us.auth0.com`) |
+| `AUTH0_DOMAIN` | Dominio Auth0 (`tu-tenant.us.auth0.com`) |
 | `AUTH0_AUDIENCE` | Audience Auth0 |
 | `AUTH0_CLIENT_ID` | Client ID Auth0 |
 | `PDFCOMPOSER_URL` | URL interna GDI-PDFComposer |

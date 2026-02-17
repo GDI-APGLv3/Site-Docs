@@ -135,7 +135,7 @@ Algunos servicios se comunican con APIs externas que siempre usan HTTPS publico:
 CF_R2_ENDPOINT=https://{account}.r2.cloudflarestorage.com
 
 # Auth0 (autenticacion)
-AUTH0_DOMAIN=gdilatam.us.auth0.com
+AUTH0_DOMAIN=tu-tenant.us.auth0.com
 
 # OpenRouter (modelos IA)
 OPENROUTER_API_KEY=sk-or-...

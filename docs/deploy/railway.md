@@ -53,7 +53,7 @@ railway environment use dev-test
 | `DB_PASSWORD` | Password BD | `<RAILWAY_SECRET>` |
 | `DB_NAME` | Nombre de la base de datos | `GDI-MVP` |
 | `TESTING_MODE` | Modo testing (header X-User-ID) | `true` / `false` |
-| `AUTH0_DOMAIN` | Dominio Auth0 | `gdilatam.us.auth0.com` |
+| `AUTH0_DOMAIN` | Dominio Auth0 | `tu-tenant.us.auth0.com` |
 | `AUTH0_AUDIENCE` | Audience JWT | `https://api.gdilatam.com` |
 | `PDFCOMPOSER_URL` | URL PDFComposer (internal) | `http://gdi-pdfcomposer.railway.internal:8002` |
 | `PDFCOMPOSER_API_KEY` | API Key PDFComposer | `<SECRET>` |

@@ -239,7 +239,7 @@ sequenceDiagram
     C->>M: POST /mcp (sin auth)
     M-->>C: 401 + WWW-Authenticate
     C->>M: GET /.well-known/oauth-protected-resource
-    M-->>C: {authorization_servers: ["https://gdilatam.us.auth0.com"]}
+    M-->>C: {authorization_servers: ["https://tu-tenant.us.auth0.com"]}
 
     Note over C,U: Fase 2: Autenticacion OAuth 2.0
     C->>A: GET /.well-known/openid-configuration

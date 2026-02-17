@@ -93,7 +93,7 @@ FRONTEND_URL=http://localhost:3013
 ```bash
 AUTH0_SECRET=your-long-secret-string
 AUTH0_BASE_URL=http://localhost:3003
-AUTH0_ISSUER_BASE_URL=https://gdilatam.us.auth0.com
+AUTH0_ISSUER_BASE_URL=https://tu-tenant.us.auth0.com
 AUTH0_CLIENT_ID=your-client-id
 AUTH0_CLIENT_SECRET=your-client-secret
 NEXT_PUBLIC_API_URL=http://localhost:8000
@@ -104,7 +104,7 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 ```bash
 AUTH0_SECRET=your-long-secret-string
 AUTH0_BASE_URL=http://localhost:3013
-AUTH0_ISSUER_BASE_URL=https://gdilatam.us.auth0.com
+AUTH0_ISSUER_BASE_URL=https://tu-tenant.us.auth0.com
 AUTH0_CLIENT_ID=your-bo-client-id
 AUTH0_CLIENT_SECRET=your-bo-client-secret
 NEXT_PUBLIC_API_URL=http://localhost:8010
@@ -148,7 +148,7 @@ OPENROUTER_FAST_MODEL=meta-llama/llama-3.3-70b-instruct:free
 EMBEDDINGS_MODEL=openai/text-embedding-3-small
 GDI_BACKEND_URL=http://localhost:8000
 INTERNAL_API_KEY=gdi-internal-dev
-AUTH0_DOMAIN=gdilatam.us.auth0.com
+AUTH0_DOMAIN=tu-tenant.us.auth0.com
 AUTH0_AUDIENCE=https://api.gdilatam.com
 ENABLED_SCHEMAS=["100_test"]
 ```
